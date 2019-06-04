@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>GitHub</h1>
+        <form class="" action="index.html" method="post">
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password" />
+            <input
+                type="text"
+                name="user-to-search"
+                placeholder="user-to-search"
+            />
+            <button id="go-button" type="button" name="button">Go</button>
+        </form>
+
+        <div id="result">
+
+        </div>
+        <script id="repoAuthor" type="text/x-handlebars-template">
+            {{#repo}}
+                <div class="person">
+                    {{#owner}}
+                        <img src="{{avatar_url}}" alt="Photo of me">
+                        <a href="{{html_url}}">{{login}}/</a>
+                    {{/owner}}
+                    <a class="repoName" href="#">{{name}}</a>
+                </div>
+            {{/repo}}
+        </script>
+
+        <script id="commitList" type="text/x-handlebars-template">
+            <div class="commits">
+                <ul>
+                    {{#kakoi-to reposArray}}
+                    <li>{{#commits}}{{message}}{{/commits}}</li>
+                    {{/kakoi-to reposArray}}
+                </ul>
+            </div>
+        </script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="script.js" type="text/javascript"></script>
+    </body>
+</html>
